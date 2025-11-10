@@ -39,7 +39,7 @@ const VideoInput = ({ attribute, name, onChange, value, intlLabel, intlDescripti
             }
         }
         if (initialValue?.privacyHash) {
-          setPrivacyHash(initialValue.privacyHash);
+            setPrivacyHash(initialValue.privacyHash);
         }
 
         if (initialValue?.url) {
@@ -70,7 +70,7 @@ const VideoInput = ({ attribute, name, onChange, value, intlLabel, intlDescripti
             }
 
             if (data?.privacyHash) {
-              setPrivacyHash(data.privacyHash);
+                setPrivacyHash(data.privacyHash);
             }
 
             const valueObj = {
@@ -141,26 +141,31 @@ const VideoInput = ({ attribute, name, onChange, value, intlLabel, intlDescripti
                     {provider === 'vimeo' && (
                         <iframe
                             src={`https://player.vimeo.com/video/${providerUid}${privacyHash ? '/' + privacyHash : ''}`}
-                            frameBorder={0}
+                            referrerPolicy="strict-origin-when-cross-origin"
+                            allow="autoplay; fullscreen; picture-in-picture"
                             allowFullScreen
                             height={200}
+                            style={{ border: 0 }}
                         ></iframe>
                     )}
                     {provider === 'youtube' && (
                         <iframe
-                            src={`https://www.youtube.com/embed/${providerUid}`}
-                            frameBorder={0}
+                            src={`https://www.youtube-nocookie.com/embed/${providerUid}`}
+                            referrerPolicy="strict-origin-when-cross-origin"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowFullScreen
                             height={200}
+                            style={{ border: 0 }}
                         ></iframe>
                     )}
                     {provider === 'facebook' && (
                         <iframe
                             src={`https://www.facebook.com/plugins/video.php?href=${providerUid}&show_text=false&t=0`}
-                            frameBorder="0"
-                            height={200}
-                            allowFullScreen
+                            referrerPolicy="strict-origin-when-cross-origin"
                             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                            allowFullScreen
+                            height={200}
+                            style={{ border: 0 }}
                         />
                     )}
                 </Flex>
