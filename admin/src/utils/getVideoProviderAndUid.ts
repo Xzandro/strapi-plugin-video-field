@@ -6,8 +6,8 @@ const getVideoProviderAndUid = (url: string) => {
     if (match && match[1]) {
       return {
         provider: "vimeo",
-        providerUid: match[1],
-        privacyHash: match[2] || null,
+        providerUid: match[2],
+        privacyHash: match[3] || null,
       };
     }
   }
