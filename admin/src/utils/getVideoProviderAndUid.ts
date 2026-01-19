@@ -3,7 +3,7 @@ const getVideoProviderAndUid = (url: string) => {
     const regExp =
       /^https?:\/\/(?:www\.)?vimeo\.com\/(?:(?:channels\/[\w]+\/)|(groups\/[\w]+\/videos\/))?(\d+)(?:\/([\w]+))?/;
     const match = url.match(regExp);
-    if (match && match[1]) {
+    if (match && match[2]) {
       return {
         provider: "vimeo",
         providerUid: match[2],
