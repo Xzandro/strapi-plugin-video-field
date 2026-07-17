@@ -140,7 +140,7 @@ const VideoInput = ({ attribute, name, onChange, value, intlLabel, intlDescripti
                 <Flex paddingTop={4} justifyContent={'center'}>
                     {provider === 'vimeo' && (
                         <iframe
-                            src={`https://player.vimeo.com/video/${providerUid}${privacyHash ? '/' + privacyHash : ''}`}
+                            src={`https://player.vimeo.com/video/${providerUid}${privacyHash ? '?=' + privacyHash : ''}`}
                             referrerPolicy="strict-origin-when-cross-origin"
                             allow="autoplay; fullscreen; picture-in-picture"
                             allowFullScreen
